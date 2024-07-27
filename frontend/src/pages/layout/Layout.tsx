@@ -52,7 +52,7 @@ const Layout = () => {
     }
   }, [copyClicked])
 
-  useEffect(() => { }, [appStateContext?.state.isCosmosDBAvailable.status])
+  useEffect(() => {}, [appStateContext?.state.isCosmosDBAvailable.status])
 
   useEffect(() => {
     const handleResize = () => {
@@ -82,14 +82,16 @@ const Layout = () => {
             <Link to="/" className={styles.headerTitleContainer}>
               <h1 className={styles.headerTitle}>{ui?.title}</h1>
             </Link>
+            <h1>Test modified</h1>
           </Stack>
           <Stack horizontal tokens={{ childrenGap: 4 }} className={styles.shareButtonContainer}>
-            {appStateContext?.state.isCosmosDBAvailable?.status !== CosmosDBStatus.NotConfigured && ui?.show_chat_history_button !== false && (
-              <HistoryButton
-                onClick={handleHistoryClick}
-                text={appStateContext?.state?.isChatHistoryOpen ? hideHistoryLabel : showHistoryLabel}
-              />
-            )}
+            {appStateContext?.state.isCosmosDBAvailable?.status !== CosmosDBStatus.NotConfigured &&
+              ui?.show_chat_history_button !== false && (
+                <HistoryButton
+                  onClick={handleHistoryClick}
+                  text={appStateContext?.state?.isChatHistoryOpen ? hideHistoryLabel : showHistoryLabel}
+                />
+              )}
             {ui?.show_share_button && <ShareButton onClick={handleShareClick} text={shareLabel} />}
           </Stack>
         </Stack>
